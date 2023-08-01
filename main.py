@@ -50,11 +50,14 @@ def rolldicef():
     if b1wasclicked:
         if turn == 0:
             dicenumber = randint(1, 6)
+            dicenumberlocal = dicenumber
         elif turn == 1:
             dicenumber2 = randint(1, 6)
+            dicenumberlocal = dicenumber2
     else:
         dicenumber = randint(1, 6)
-    for i in range(dicenumber):
+        dicenumberlocal = dicenumber
+    for i in range(dicenumberlocal):
         if playerlist[turn].x < 540:
             playerlist[turn]. y -= 50
             playerlist[turn].x += 450
@@ -64,7 +67,7 @@ def rolldicef():
             playerwhowon = turn + 1
             close = True
         for j in greenrectangles:
-            if playerlist[turn].colliderect(j) and i == (dicenumber - 1):
+            if playerlist[turn].colliderect(j) and i == (dicenumberlocal - 1):
                 for i in range(5):
                     if playerlist[turn].x < 540:
                         playerlist[turn]. y -= 50
@@ -75,7 +78,7 @@ def rolldicef():
                         playerwhowon = turn + 1
                         close = True
         for r in redrectangles:
-            if playerlist[turn].colliderect(r) and i == (dicenumber - 1):
+            if playerlist[turn].colliderect(r) and i == (dicenumberlocal - 1):
                 for i in range(5):
                     if playerlist[turn].x > 950:
                         playerlist[turn]. y += 50
@@ -86,6 +89,7 @@ def rolldicef():
     if turn > (players - 1):
         turn = 0
     draw.rect(w, (0, 255, 0), rect.Rect(1050, 300, 50, 50))
+
 
 closew = False
 while closew != True:
