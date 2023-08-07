@@ -3,7 +3,7 @@ from random import randint
 init()
 
 class Button():
-    def __init__(self, text, window, x = 100, y = 100, width = 500, height = 50, colour = (255, 255, 255)):
+    def __init__(self, text, window, x = 100, y = 100, width = 300, height = 50, colour = (255, 0, 0)):
         self.rect = rect.Rect(x, y, width, height)
         self.colour = colour
         self.window = window
@@ -99,9 +99,9 @@ while closew != True:
     clock = time.Clock()
     players = None
     b1 = Button('1 player', w)
-    b2 = Button('2 players', w, 100, 150)
-    b3 = Button('3 players', w, 100, 200)
-    b4 = Button('4 players', w, 100, 250)
+    b2 = Button('2 players', w, 100, 160)
+    b3 = Button('3 players', w, 100, 220)
+    b4 = Button('4 players', w, 100, 280)
     buttons = [b1, b2, b3, b4]
     functions = [b1clicked, b2clicked, b3clicked, b4clicked]
     close = False
@@ -110,6 +110,7 @@ while closew != True:
         for i in event.get():
             if i.type == QUIT:
                 closew = True
+                close = True
             if i.type == MOUSEBUTTONDOWN and i.button == 1:
                 x, y = i.pos
         try:
